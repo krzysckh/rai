@@ -1,0 +1,18 @@
+rai - random access images
+---   ------ ------ ------
+
+stoopid random images generator
+
+installation:
+	git clone https://github.com/krzysckh/rai
+	cd rai
+	make
+	sudo make install
+
+usage:
+	./rai > file.ppm
+
+options
+	-W	set width (in pixels)
+	-H	set height (in pixels)
+	-s	set seed

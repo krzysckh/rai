@@ -1,0 +1,23 @@
+.TH "rai" "1"
+.SH NAME
+prez \- random image generator
+.SH "SYNOPSIS"
+rai [-h] [-W width] [-H height] [-s seed]
+.SH "USAGE"
+.PP
+rai will generate a random image and print it to stdout in the ppm format.
+.SH "OPTIONS"
+.TP
+.B \-W width
+set width of the image
+.TP
+.B \-H height
+set height of the image
+.TP
+.B \-s seed
+set seed for the image
+.SH "EXAMPLES"
+.EX
+rai -W 1000 -H 1000 | convert - -fill white -font "Cooper Black" \\
+	-pointsize 20 -gravity center label:rai(1) rai.png
+.EE
