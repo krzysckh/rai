@@ -1,13 +1,14 @@
 rai - random access images
 ---   ------ ------ ------
 
-stoopid random images generator
+stOOpid random image generator
 
 installation:
 	git clone https://github.com/krzysckh/rai
 	cd rai
 	make
 	sudo make install
+	man 1 rai
 
 usage:
 	./rai > file.ppm

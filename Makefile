@@ -6,7 +6,7 @@ PREFIX=/usr
 	gzip -k $<
 all: rai rai.1.gz
 clean:
-	rm -f rai
+	rm -f rai *.gz
 install: all
 	install -Dm755 -s rai -t $(PREFIX)/bin/
 	install -Dm644 rai.1.gz -t $(PREFIX)/share/man/man1/

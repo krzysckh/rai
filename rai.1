@@ -1,6 +1,6 @@
 .TH "rai" "1"
 .SH NAME
-prez \- random image generator
+rai \- random image generator
 .SH "SYNOPSIS"
 rai [-h] [-W width] [-H height] [-s seed]
 .SH "USAGE"
@@ -18,6 +18,12 @@ set height of the image
 set seed for the image
 .SH "EXAMPLES"
 .EX
-rai -W 1000 -H 1000 | convert - -fill white -font "Cooper Black" \\
-	-pointsize 20 -gravity center label:rai(1) rai.png
+rai -W 1000 -H 1000 -s 3000 \\
+	| convert PPM:- \\
+		-fill white \\
+		-font /usr/local/share/fonts/ProggyVector\\ Regular.ttf \\
+		-pointsize 75 \\
+		-gravity center \\
+		-annotate 0 "rai(1)" \\
+		rai.png
 .EE
