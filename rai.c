@@ -104,7 +104,7 @@ Image draw_quirky_line(Image img, int width, int height, int color_st[3]) {
 	fprintf(stderr, "line sz: %d\n", sz);
 
 	for (i = 0; i < sz; i++) {
-		if (x < width && y < height) {
+		if (x < width && y < height && x > 0 && y > 0) {
 			img.pxl[y][x].r = color_st[0] + ((rand() % 2 == 0) ? (rand() % 40) : -(rand() % 20));
 			img.pxl[y][x].g = color_st[1] + ((rand() % 2 == 0) ? (rand() % 40) : -(rand() % 20));
 			img.pxl[y][x].b = color_st[2] + ((rand() % 2 == 0) ? (rand() % 40) : -(rand() % 20));
