@@ -2,7 +2,14 @@
 .SH NAME
 rai \- random image generator
 .SH "SYNOPSIS"
-rai [-h] [-W width] [-H height] [-s seed]
+.SY rai
+.OP \-h
+.OP \-W width
+.OP \-H height
+.OP \-s seed
+.OP \-n slt
+.YS
+
 .SH "USAGE"
 .PP
 rai will generate a random image and print it to stdout in the ppm format.
@@ -16,6 +23,10 @@ set height of the image
 .TP
 .B \-s seed
 set seed for the image
+.TP
+.B \-n l / s / t
+turn off
+\fBl\fPines, \fBs\fPquares or \fBt\fPriangles
 .SH "EXAMPLES"
 .EX
 rai -W 1000 -H 1000 -s 3000 \\

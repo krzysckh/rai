@@ -123,13 +123,16 @@ int main (int argc, char *argv[]) {
 	    i,
 	    j,
 	    color_tmp[3],
+	    squares = 1,
+	    triangles = 1,
+	    quirky_lines = 1,
 	    seed = time(NULL);
 	Image img;
 
-	while ((opt = getopt(argc, argv, "hs:W:H:")) != -1) {
+	while ((opt = getopt(argc, argv, "hs:W:H:n:")) != -1) {
 		switch(opt) {
 			case 'h':
-				printf("usage: %s [-h] [-s seed] [-W width] [-H height]\n", argv[0]);
+				printf("usage: %s [-h] [-s seed] [-W width] [-H height] [ -n stl ]\n", argv[0]);
 				exit(0);
 				break;
 			case 's':
@@ -140,6 +143,25 @@ int main (int argc, char *argv[]) {
 				break;
 			case 'H':
 				height = atoi(optarg);
+				break;
+			case 'n':
+				while (*optarg) {
+					switch (*optarg) {
+						case 's':
+							squares = 0;
+							break;
+						case 't':
+							triangles = 0;
+							break;
+						case 'l':
+							quirky_lines = 0;
+							break;
+						default:
+							fprintf(stderr, "bad argument '%c' for -n\n", *optarg);
+							exit(1);
+					}
+					optarg++;
+				}
 				break;
 			default:
 				exit(1);
@@ -173,25 +195,31 @@ int main (int argc, char *argv[]) {
 
 	fprintf(stderr, "seed: %d\n", seed);
 
-	for (i = 0; i < rand() % 15; i++) {
-		color_tmp[0] = rand() % 255;
-		color_tmp[1] = rand() % 255;
-		color_tmp[2] = rand() % 255;
-		img = draw_triangle(img, width, height, color_tmp);
+	if (triangles) {
+		for (i = 0; i < rand() % 15; i++) {
+			color_tmp[0] = rand() % 255;
+			color_tmp[1] = rand() % 255;
+			color_tmp[2] = rand() % 255;
+			img = draw_triangle(img, width, height, color_tmp);
+		}
 	}
 
-	for (i = 0; i < rand() % 15; i++) {
-		color_tmp[0] = rand() % 255;
-		color_tmp[1] = rand() % 255;
-		color_tmp[2] = rand() % 255;
-		img = draw_square(img, width, height, color_tmp);
+	if (squares) {
+		for (i = 0; i < rand() % 15; i++) {
+			color_tmp[0] = rand() % 255;
+			color_tmp[1] = rand() % 255;
+			color_tmp[2] = rand() % 255;
+			img = draw_square(img, width, height, color_tmp);
+		}
 	}
 
-	for (i = 0; i < rand() % 50; i++) {
-		color_tmp[0] = rand() % 255;
-		color_tmp[1] = rand() % 255;
-		color_tmp[2] = rand() % 255;
-		img = draw_quirky_line(img, width, height, color_tmp);
+	if (quirky_lines) {
+		for (i = 0; i < rand() % 50; i++) {
+			color_tmp[0] = rand() % 255;
+			color_tmp[1] = rand() % 255;
+			color_tmp[2] = rand() % 255;
+			img = draw_quirky_line(img, width, height, color_tmp);
+		}
 	}
 
 	

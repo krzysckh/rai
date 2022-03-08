@@ -13,7 +13,14 @@ installation:
 usage:
 	./rai > file.ppm
 
-options
-	-W	set width (in pixels)
-	-H	set height (in pixels)
-	-s	set seed
+options:
+	-W width	set width (in pixels)
+	-H height	set height (in pixels)
+	-s number	set seed
+	-n s/l/t	turn off squares / lines / triangles
+
+example:
+	rai -W 1000 -H 1000 -s 666 -nst > a.ppm
+
+	# creates a 1000x1000 image with seed 666
+	# and without squares and triangles
