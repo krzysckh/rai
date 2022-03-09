@@ -132,7 +132,7 @@ int main (int argc, char *argv[]) {
 	while ((opt = getopt(argc, argv, "hs:W:H:n:")) != -1) {
 		switch(opt) {
 			case 'h':
-				printf("usage: %s [-h] [-s seed] [-W width] [-H height] [ -n stl ]\n", argv[0]);
+				printf("usage: %s [-h] [-s seed] [-W width] [-H height] [-n stl]\n", argv[0]);
 				exit(0);
 				break;
 			case 's':
