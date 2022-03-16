@@ -1,5 +1,4 @@
 CFLAGS=-Wall -Wextra -std=c89
-LDFLAGS=-lm
 PREFIX=/usr
 
 %.gz: %

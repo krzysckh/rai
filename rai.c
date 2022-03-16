@@ -3,7 +3,6 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <time.h>
-#include <math.h>
 
 typedef struct {
 	uint8_t r;
