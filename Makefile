@@ -1,14 +1,18 @@
 CFLAGS=-Wall -Wextra -std=c89
 PREFIX=/usr
 
-%.gz: %
+.SUFFIXES: .1 .1.gz
+
+.1.1.gz: rai.1
 	gzip -k $<
+
 all: rai rai.1.gz
+
 clean:
 	rm -f rai *.gz
 install: all
-	install -Dm755 -s rai -t $(PREFIX)/bin/
-	install -Dm644 rai.1.gz -t $(PREFIX)/share/man/man1/
+	cp rai $(PREFIX)/bin/
+	cp rai.1.gz $(PREFIX)/share/man/man1/
 uninstall:
 	rm -rf $(PREFIX)/bin/rai
 	rm -rf $(PREFIX)/share/man/man1/rai.1.gz
