@@ -167,7 +167,11 @@ int main (int argc, char *argv[]) {
 				break;
 		}
 	}
+#ifdef __OpenBSD__
+	srand_deterministic(seed);
+#else
 	srand(seed);
+#endif
 
 	img.pxl = malloc(sizeof(Pixel*) * (height + 1));
 
